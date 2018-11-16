@@ -6,7 +6,8 @@ import styles from './App.css';
 class App extends Component {
   
   state = {
-    length: {length: 0}
+    length: {length: 0},
+    components: {comp: []}
   }
   
   listen = (event) => {
@@ -16,7 +17,11 @@ class App extends Component {
     
 
     this.setState({length: {length: strLength}});
+    this.setState({components: {comp: textArr}})
+
   }
+
+  
 
 
   render() {
@@ -24,7 +29,6 @@ class App extends Component {
     let lengthOuput = null;
 
     if(this.state.length.length < 5) {
-
 
     lengthOuput = (
       <div className={styles.notPassed}>
@@ -40,14 +44,20 @@ class App extends Component {
       )
     }
   
-  
+    let output = (
+      <div className={styles.charComponent}>
+        {this.state.components.comp.map((comp, index) =>{
+          return comp;
+        })}
+      </div>
+    );
+    
+
   
 
     return (
       <div className="App">
-          <div>
             <ol>
-
               <li>Create an input field (in App component) with a change listener which outputs the length of the entered text below it (e.g. in a paragraph).</li>
               <li>Create a new component (=> ValidationComponent) which receives the text length as a prop</li>
               <li>Inside the ValidationComponent, either output "Text too short" or "Text long enough" depending on the text length (e.g. take 5 as a minimum length)</li>
@@ -56,12 +66,19 @@ class App extends Component {
               <li>When you click a CharComponent, it should be removed from the entered text.</li>
             </ol>
             <p>Hint: Keep in mind that JavaScript strings are basically arrays!</p>
-          </div>
+
+
+          <Input 
+          listen={this.listen} 
           
-          
-          <Input listen={this.listen} />
+          />
           <p>length: {this.state.length.length}</p>
+          <p>length: {this.state.components.comp}</p>
+
+          {/* output of the text length logic */}
           {lengthOuput}
+
+          {output}
       </div>
 
     );
