@@ -53,15 +53,18 @@ class App extends Component {
     }
     
     let output = null;
-    
+    let i = 0;
     if(this.state.components.comp.length > 1){
       output = (
         <div className={styles.charComponent}>
         {this.state.components.comp.map((comp, index) =>{
           return <Output 
-                  className={styles.charComponent}
+                  className={styles.charCompChild}
                   delete={() => this.deleteHandler(index)}
                   val={comp}
+                  // not a perfect key just to remove the error 
+                  // in case of db conneciton will take id as a key
+                  key={i++}
                   />
         })}
       </div>
@@ -89,7 +92,7 @@ class App extends Component {
           
           />
           <p>length: {this.state.length.length}</p>
-          <p>length: {this.state.components.comp}</p>
+          <p>Text Output: {this.state.components.comp}</p>
 
           {/* output of the text length logic */}
           {lengthOuput}

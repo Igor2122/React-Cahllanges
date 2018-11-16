@@ -5,7 +5,6 @@ const strLength = (props) => {
       <div>
          <input onChange={props.listen}  type="text" />
       </div>
-
    );
 }
 

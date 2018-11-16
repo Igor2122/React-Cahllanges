@@ -23,3 +23,10 @@
   margin: 16px;
   border: 1px solid black;
 }
+
+:local(.charCompChild){
+  cursor: pointer;
+  padding: 10px;
+  border: 1px solid blueviolet;
+  margin: 2px 3px;
+}
