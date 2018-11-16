@@ -1,0 +1,15 @@
+.App {
+  margin: 16px;
+}
+
+:local(.passed){
+  background: green;
+  width: 180px;
+  padding: 20px;
+}
+
+:local(.notPassed){
+  background: red;
+  width: 180px;
+  padding: 20px;
+}
