@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Input from './input/input';
+import Output from './input/output';
 import styles from './App.css';
 
 class App extends Component {
@@ -19,6 +20,13 @@ class App extends Component {
     this.setState({length: {length: strLength}});
     this.setState({components: {comp: textArr}})
 
+  }
+
+  deleteHandler = (compIndex) => {
+    const components = [...this.state.components.comp]
+    console.log(components);
+    components.splice(compIndex, 1);
+    this.setState({components:{comp: components}});
   }
 
   
@@ -43,14 +51,22 @@ class App extends Component {
         </div>
       )
     }
-  
-    let output = (
-      <div className={styles.charComponent}>
+    
+    let output = null;
+    
+    if(this.state.components.comp.length > 1){
+      output = (
+        <div className={styles.charComponent}>
         {this.state.components.comp.map((comp, index) =>{
-          return comp;
+          return <Output 
+                  className={styles.charComponent}
+                  delete={() => this.deleteHandler(index)}
+                  val={comp}
+                  />
         })}
       </div>
     );
+    }
     
 
   

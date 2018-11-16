@@ -15,7 +15,9 @@
 }
 
 :local(.charComponent){
-  display: inline-block;
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
   padding: 16px;
   text-align: center;
   margin: 16px;
