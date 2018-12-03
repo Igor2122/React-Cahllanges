@@ -22,7 +22,7 @@ class Home extends Component  {
 
             <Route path="/courses" component={Courses} />
             <Route path="/users" component={User} />
-            <Route path="/courses/:id" exact component={Course} />
+            
 
          </div>              
       );
