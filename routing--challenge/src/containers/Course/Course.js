@@ -4,7 +4,6 @@ class Course extends Component {
 
     state = {
         id: null,
-        title: null
     }
 
     componentDidMount () {
@@ -15,8 +14,8 @@ class Course extends Component {
     render () {
         return (
             <div>
-                <h1>_COURSE_TITLE_</h1>
-                <p>You selected the Course with ID: _ID_: <bold> {this.state.id}</bold></p>
+                <h1>{this.props.location.title}</h1>
+                <p>You selected the Course with ID: {this.props.location.id}</p>
             </div>
         );
     }

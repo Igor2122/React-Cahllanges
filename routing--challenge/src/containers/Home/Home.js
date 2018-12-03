@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+// eslint-disable-next-line
 import { Route, NavLink, Switch } from 'react-router-dom';
 import Courses from '../Courses/Courses';
 import User from '../Users/Users';
